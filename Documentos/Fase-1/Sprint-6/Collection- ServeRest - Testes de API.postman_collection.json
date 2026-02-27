@@ -1,0 +1,1901 @@
+{
+  "info": {
+    "_postman_id": "c77d6821-c22f-4228-8e89-b94cb090b55e",
+    "name": "Collection: ServeRest - Testes de API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51713928"
+  },
+  "item": [
+    {
+      "name": "Fluxo - Usuário Cliente",
+      "item": [
+        {
+          "name": "Testes Funcionais - Positivos",
+          "item": [
+            {
+              "name": "Cancelamento de compra",
+              "item": [
+                {
+                  "name": "POST - Usuários - Cadastro Cliente",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": {{user_nome}},\r\n  \"email\": {{user_email}},\r\n  \"password\": {{user_senha}},\r\n  \"administrador\": {{administrador}}\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Login Cliente – Credenciais válidas",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Login cliente realizado com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "pm.environment.set(\r",
+                          "    \"token_cliente\",\r",
+                          "    response.authorization.replace(\"Bearer \", \"\")\r",
+                          ");\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": {{user_email}},\n  \"password\": {{user_senha}}\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Listar todos os produtos",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Listagem de produtos retornada com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "if (response.produtos && response.produtos.length > 0) {\r",
+                          "    const primeiroProdutoId = response.produtos[0]._id;\r",
+                          "\r",
+                          "    pm.environment.set(\"produto_id\", JSON.stringify(primeiroProdutoId));\r",
+                          "\r",
+                          "    console.log(\"Produto ID salvo:\", JSON.stringify(primeiroProdutoId));\r",
+                          "} else {\r",
+                          "    console.warn(\"Nenhum produto encontrado na resposta\");\r",
+                          "}\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Carrinho – Criar carrinho",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "// Converte a resposta em JSON\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "// Teste básico de sucesso\r",
+                          "pm.test(\"Carrinho criado com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(201);\r",
+                          "    pm.expect(response).to.have.property(\"_id\");\r",
+                          "});\r",
+                          "\r",
+                          "// Salva o ID retornado na variável de ambiente\r",
+                          "pm.environment.set(\r",
+                          "    \"carrinho_id\",\r",
+                          "    response._id\r",
+                          ");\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": {{produto_id}},\r\n      \"quantidade\": 2\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Carrinho – Consultar carrinho do usuário",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Listar todos os produtos Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Listagem de produtos retornada com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "if (response.produtos && response.produtos.length > 0) {\r",
+                          "    const primeiroProdutoId = response.produtos[0]._id;\r",
+                          "\r",
+                          "    pm.environment.set(\"produto_id\", JSON.stringify(primeiroProdutoId));\r",
+                          "\r",
+                          "    console.log(\"Produto ID salvo:\", JSON.stringify(primeiroProdutoId));\r",
+                          "} else {\r",
+                          "    console.warn(\"Nenhum produto encontrado na resposta\");\r",
+                          "}\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Consultar produto por ID válido",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/{{produto_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "{{produto_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "DELETE – Carrinho – Cancelar carrinho existente",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos/cancelar-compra",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos",
+                        "cancelar-compra"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Consultar produto por ID válido Copy",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/{{produto_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "{{produto_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Carrinho – Consultar carrinho do usuário Copy",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Deleção de usuário",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/usuarios/Z3Zt4C2ds0ExsFzi",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios",
+                        "Z3Zt4C2ds0ExsFzi"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "\n",
+                    "type": "string"
+                  }
+                ]
+              },
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Testes Funcionais - Negativos",
+          "item": [
+            {
+              "name": "GET",
+              "item": [
+                {
+                  "name": "GET – Produtos – Consultar produto com ID inexistente",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/LeeKh5lz3k8kSIcE",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "LeeKh5lz3k8kSIcE"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "POST",
+              "item": [
+                {
+                  "name": "Cadastro de usuario",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"nome\": {{user3_nome}},\n  \"email\": {{user3_email}},\n  \"password\": {{user3_senha}},\n  \"administrador\": {{administrador}}\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Login de usuario",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Login cliente realizado com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "pm.environment.set(\r",
+                          "    \"token_cliente3\",\r",
+                          "    response.authorization.replace(\"Bearer \", \"\")\r",
+                          ");\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": {{user3_email}},\r\n  \"password\": {{user3_senha}}\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Cadastro com email já existente",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": {{user2_nome}},\r\n  \"email\": {{user_email_existente}},\r\n  \"password\": {{user2_senha}},\r\n  \"administrador\": {{administrador}}\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Login Cliente – Email inexistente",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": {{email_inexiste}},\r\n  \"password\": {{user_senha}},\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Cadastro Cliente – Senha inválida",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": {{user_nome}},\r\n  \"email\": {{user_email}},\r\n  \"password\": {{senha_invalida1}},\r\n  \"administrador\": {{administrador}}\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "PUT",
+              "item": []
+            },
+            {
+              "name": "DELETE",
+              "item": [
+                {
+                  "name": "Deleção de usuário Copy",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/usuarios/Z3Zt4C2ds0ExsFzi",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios",
+                        "Z3Zt4C2ds0ExsFzi"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fluxo - Usuário Administrador",
+      "item": [
+        {
+          "name": "Testes Funcionais – Positivos",
+          "item": [
+            {
+              "name": "POST – Usuários – Criar usuário válido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": {{user_nome}},\r\n  \"email\": {{user_email}},\r\n  \"password\": {{user_senha}},\r\n  \"administrador\": {{administrador}}\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/usuarios",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST – Login Administrador – Credenciais válidas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Login administrador realizado com sucesso\", () => {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "const response = pm.response.json();\r",
+                      "\r",
+                      "pm.test(\"Token de administrador retornado\", () => {\r",
+                      "    pm.expect(response).to.have.property(\"authorization\");\r",
+                      "});\r",
+                      "\r",
+                      "pm.environment.set(\r",
+                      "    \"token_admin\",\r",
+                      "    response.authorization.replace(\"Bearer \", \"\")\r",
+                      ");\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": {{user_email}},\r\n  \"password\": {{user_senha}}\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/login",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Produtos - Cadastrar produtos Copy",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token_admin}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 1\r\n    }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/carrinhos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "carrinhos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET – Usuários – Listar todos os usuários",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token_admin}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/usuarios",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PUT – Usuários – Atualizar usuário existente",
+              "request": {
+                "method": "PUT",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "POST – Produtos – Criar produto válido",
+              "request": {
+                "method": "POST",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "PUT – Produtos – Atualizar produto existente",
+              "request": {
+                "method": "PUT",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE – Produtos – Remover produto existente",
+              "request": {
+                "method": "DELETE",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Testes Funcionais – Negativos",
+          "item": [
+            {
+              "name": "Atualização de produto inexistente",
+              "item": [
+                {
+                  "name": "POST – Usuários – Criar usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \"Lucas\",\r\n  \"email\": \"lucas@qa.com.br\",\r\n  \"password\": \"2026\",\r\n  \"administrador\": \"true\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Login de usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"lucas@qa.com.br\",\r\n  \"password\": \"2026\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Consultar produtos existentes",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "PUT – Produtos – Atualizar produto com id inexistente",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \"Dazz\",\r\n  \"preco\": 25,\r\n  \"descricao\": \"Mouse\",\r\n  \"quantidade\": 10\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/LeeKh5lz3k8kSIcE",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "LeeKh5lz3k8kSIcE"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Listar todos os produtos Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Listagem de produtos retornada com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "// Verifica se existe pelo menos um produto\r",
+                          "if (response.produtos && response.produtos.length > 0) {\r",
+                          "    const primeiroProdutoId = response.produtos[0]._id;\r",
+                          "\r",
+                          "    pm.environment.set(\"produto_id\", primeiroProdutoId);\r",
+                          "\r",
+                          "    console.log(\"Produto ID salvo:\", primeiroProdutoId);\r",
+                          "} else {\r",
+                          "    console.warn(\"Nenhum produto encontrado na resposta\");\r",
+                          "}\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Consultar produto com ID inexistente",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{token_cliente}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/LeeKh5lz3k8kSIcE",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "LeeKh5lz3k8kSIcE"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Atualização de ID inexistente",
+              "item": [
+                {
+                  "name": "POST – Usuários – Criar usuário Copy",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \"Wookie\",\r\n  \"email\": \"wookie@qa.com.br\",\r\n  \"password\": \"2026\",\r\n  \"administrador\": \"true\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Usuários – Criar usuário invalido",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"vidall@.com.br\",\r\n  \"password\": \".\",\r\n  \"administrador\": \"true\"\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Login de usuário Copy",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"wookie@qa.com.br\",\r\n  \"password\": \"2026\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Listagem de usuários existentes",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5Mzk0NTYsImV4cCI6MTc3MDk0MDA1Nn0.ufdG3aj7B2T8e9vWxk-GcWzW12nGaexg7K6KRR_9Llk\"",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Retorno de usuario inexistente",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5Mzk0NTYsImV4cCI6MTc3MDk0MDA1Nn0.ufdG3aj7B2T8e9vWxk-GcWzW12nGaexg7K6KRR_9Llk\"",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/usuarios/KLhxozI7hncViwFb",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios",
+                        "KLhxozI7hncViwFb"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Atualização de usuário não existente",
+                  "request": {
+                    "auth": {
+                      "type": "noauth"
+                    },
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \"Darth Vader\",\r\n  \"email\": \"anakin@qa.com.br\",\r\n  \"password\": \"starwars\",\r\n  \"administrador\": \"true\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/usuarios/KLhxozI7hncViwFb",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios",
+                        "KLhxozI7hncViwFb"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Listagem de usuários existentes",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/usuarios",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "usuarios"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Cadastrar produto com qtde < 0",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5NDIzOTksImV4cCI6MTc3MDk0Mjk5OX0.pATHNUW7krsLWKIq1NCAdtQ1MoT9wkR-2KPPUeValxY",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \"JBL\",\r\n  \"preco\": 9007199254740990,\r\n  \"descricao\": \"Fone\",\r\n  \"quantidade\": 2\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Carrinho – Consultar carrinho do usuário Copy",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5NDEyMjUsImV4cCI6MTc3MDk0MTgyNX0.PhWT7cZXXtnbGCDPb8jYOEqOz0gZIRRK7btCBZKj_hU",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Carrinho – Criar carrinho Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "// Converte a resposta em JSON\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "// Teste básico de sucesso\r",
+                          "pm.test(\"Carrinho criado com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(201);\r",
+                          "    pm.expect(response).to.have.property(\"_id\");\r",
+                          "});\r",
+                          "\r",
+                          "// Salva o ID retornado na variável de ambiente\r",
+                          "pm.environment.set(\r",
+                          "    \"carrinho_id\",\r",
+                          "    response._id\r",
+                          ");\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5NDE4NTcsImV4cCI6MTc3MDk0MjQ1N30.ZmyarkNIjgKzVzFRvZQNKWS0h9bv2W7JnMcoZId7DyA",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 0\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Carrinho – Consultar carrinho do usuário Copy",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "POST – Carrinho – Criar carrinho Copy 2",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "// Converte a resposta em JSON\r",
+                          "const response = pm.response.json();\r",
+                          "\r",
+                          "// Teste básico de sucesso\r",
+                          "pm.test(\"Carrinho criado com sucesso\", () => {\r",
+                          "    pm.response.to.have.status(201);\r",
+                          "    pm.expect(response).to.have.property(\"_id\");\r",
+                          "});\r",
+                          "\r",
+                          "// Salva o ID retornado na variável de ambiente\r",
+                          "pm.environment.set(\r",
+                          "    \"carrinho_id\",\r",
+                          "    response._id\r",
+                          ");\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disabledSystemHeaders": {}
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indvb2tpZUBxYS5jb20uYnIiLCJwYXNzd29yZCI6IjIwMjYiLCJpYXQiOjE3NzA5NDEyMjUsImV4cCI6MTc3MDk0MTgyNX0.PhWT7cZXXtnbGCDPb8jYOEqOz0gZIRRK7btCBZKj_hU",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 3\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GET – Produtos – Consultar produto por ID válido Copy 2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{cliente_token}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos/{{produto_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        "{{produto_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Listagem de produto por ID inválido",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/produtos/?preco=0&quantidade=1",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "key": "preco",
+                          "value": "0"
+                        },
+                        {
+                          "key": "quantidade",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Excluir carrinho nao existente",
+              "item": [
+                {
+                  "name": "Cadastro de produto sem campo obrigatório",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAcWEuY29tLmJyIiwicGFzc3dvcmQiOiIyMDI2IiwiaWF0IjoxNzcwOTc5MjY5LCJleHAiOjE3NzA5Nzk4Njl9.I2A590XTeOH5lqtQ1S1m94CeRyxLoml1A6Rmxc9YpCI",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"nome\": \" \",\r\n  \"preco\": 100,\r\n  \"descricao\": \"Suporte de celular\",\r\n  \"quantidade\": 381\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/produtos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "produtos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Listar carrinhos cadastrados",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAcWEuY29tLmJyIiwicGFzc3dvcmQiOiIyMDI2IiwiaWF0IjoxNzcwOTgwNzIxLCJleHAiOjE3NzA5ODEzMjF9.8pWjyd-KzL5r09F119Gpi2znEAt27-6MNboJ4iAA4Lw",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Concluir compra sem carrinho existente",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAcWEuY29tLmJyIiwicGFzc3dvcmQiOiIyMDI2IiwiaWF0IjoxNzcwOTgwNzIxLCJleHAiOjE3NzA5ODEzMjF9.8pWjyd-KzL5r09F119Gpi2znEAt27-6MNboJ4iAA4Lw",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/carrinhos/concluir-compra",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "carrinhos",
+                        "concluir-compra"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

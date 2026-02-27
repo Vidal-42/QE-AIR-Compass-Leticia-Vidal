@@ -1,0 +1,3685 @@
+{
+  "info": {
+    "_postman_id": "e2187b8a-b5e6-4d9c-ac7a-2b26f0643b36",
+    "name": "Squad 2",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51946212",
+    "_collection_link": "https://go.postman.co/collection/51713928-e2187b8a-b5e6-4d9c-ac7a-2b26f0643b36?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Rota PET",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "Listagem de pets",
+              "item": [
+                {
+                  "name": "Teste negativo",
+                  "item": [
+                    {
+                      "name": "Input com valor vazio",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=\"\"",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "\"\""
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Input com valor nulo",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=null",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Input fora do enum",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=abc",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "abc"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Input com primeira letra maiuscula",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=Available",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "Available"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Input do tipo booleano",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=true",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Input com número",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=123",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "123"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste Positivo",
+                  "item": [
+                    {
+                      "name": "Status disponivel",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "available"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Status pendente",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=pending",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Status vendido",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=sold",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "findByStatus"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "sold"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Retorno de pet por ID",
+              "item": [
+                {
+                  "name": "Teste positivo",
+                  "item": [
+                    {
+                      "name": "ID valido",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/683182",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "683182"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Teste com ID existente",
+                      "request": {
+                        "method": "GET",
+                        "header": []
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Teste com ID sobrescrito",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/40000129",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "40000129"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste negativo",
+                  "item": [
+                    {
+                      "name": "ID inexistente",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/0000",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "0000"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "ID invalido",
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/1.5",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "1.5"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "Cadastro de pet",
+              "item": [
+                {
+                  "name": "Teste positivo",
+                  "item": [
+                    {
+                      "name": "Cadastro válido",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 114905,\n  \"category\": {\n    \"id\": 4,\n    \"name\": \"gato\"\n  },\n  \"name\": \"Frodo\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"docil\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Cadastro válido 2",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 40000129,\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"rabbit\"\n  },\n  \"name\": \"Frodo\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"hero\"\n    }\n  ],\n  \"status\": \"available\"\n}\n"
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste Negativo",
+                  "item": [
+                    {
+                      "name": "Campos ausentes na sintaxe",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 0,\n  \"category\": {\n    \"id\": 0,\n    \"name\": \"string\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n\n      \n",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Tipo de dado inválido",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 0,\n  \"category\": {\n    \"id\": 0,\n    \"name\": 123\n  },\n  \"name\": --,\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Cadastro de pet com ID existente",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 40000129,\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"snake\"\n  },\n  \"name\": \"Gollum\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 1,\n      \"name\": \"villain\"\n    }\n  ],\n  \"status\": \"available\"\n}\n"
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Atualização de dados do pet",
+              "item": [
+                {
+                  "name": "Teste positivo",
+                  "item": [
+                    {
+                      "name": "Atualizar nome",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "type": "text",
+                              "key": "name",
+                              "value": "Frodo bolseiro"
+                            },
+                            {
+                              "type": "text",
+                              "key": "status",
+                              "value": "available"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/114905",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "114905"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Atualizar status",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "type": "text",
+                              "key": "name",
+                              "value": "Frodo bolseiro"
+                            },
+                            {
+                              "type": "text",
+                              "key": "status",
+                              "value": "pending"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/114905",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "114905"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Atualizar nome e status",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "type": "text",
+                              "key": "name",
+                              "value": "Frodo Baggins"
+                            },
+                            {
+                              "type": "text",
+                              "key": "status",
+                              "value": "sold"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/114905",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "114905"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste negativo",
+                  "item": [
+                    {
+                      "name": "ID inexistente",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "type": "text",
+                              "key": "name",
+                              "value": "Frodo Baggins"
+                            },
+                            {
+                              "type": "text",
+                              "key": "status",
+                              "value": "sold"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/0000000000000000000000",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "0000000000000000000000"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "ID inválido",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "type": "text",
+                              "key": "name",
+                              "value": "Frodo Baggins"
+                            },
+                            {
+                              "type": "text",
+                              "key": "status",
+                              "value": "sold"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/\"abc\"",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "\"abc\""
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Atualização de imagem do pet",
+              "item": [
+                {
+                  "name": "Teste positivo",
+                  "item": [
+                    {
+                      "name": "Atualização de imagem com ID existente",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "type": "file",
+                              "contentType": "image/jpeg",
+                              "key": "file",
+                              "src": "/C:/Users/vidal/OneDrive/Documents/Imagens/sallyzinho.ico"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/192837465/uploadImage",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "192837465",
+                            "uploadImage"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste negativo",
+                  "item": [
+                    {
+                      "name": "ID inexistente",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "type": "file",
+                              "contentType": "image/jpeg",
+                              "key": "file",
+                              "src": "free-photo-of-milky-way-in-space.jpeg"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet/99999999999999999999999999999/uploadImage",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet",
+                            "99999999999999999999999999999",
+                            "uploadImage"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "Atualização completa do cadastro",
+              "item": [
+                {
+                  "name": "Teste positivo",
+                  "item": [
+                    {
+                      "name": "Atualização válida",
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 0,\n  \"category\": {\n    \"id\": 0,\n    \"name\": \"string\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Teste negativo",
+                  "item": [
+                    {
+                      "name": "ID inexistente",
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 000000000000000000000,\n  \"category\": {\n    \"id\": 0,\n    \"name\": \"cat\"\n  },\n  \"name\": \"caty\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Body inválido",
+                      "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\r\n  \"id\": 0,\r\n  \"category\" \r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  \r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": \r\n    \r\n      \"id\": 0,\r\n      \"name\"\r\n    \r\n  ],\r\n  \"status\": \r\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "https://petstore.swagger.io/v2/pet",
+                          "protocol": "https",
+                          "host": [
+                            "petstore",
+                            "swagger",
+                            "io"
+                          ],
+                          "path": [
+                            "v2",
+                            "pet"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ],
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          ""
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {},
+                        "exec": [
+                          "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                          "});"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DELETE",
+          "item": [
+            {
+              "name": "Teste positivo",
+              "item": [
+                {
+                  "name": "Exclusão válida",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "api_key",
+                        "value": "114905"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/pet/9223372036854775201",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "pet",
+                        "9223372036854775201"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Teste Negativo",
+              "item": [
+                {
+                  "name": "ID inválido",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "api_key",
+                        "value": "114905"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/pet/\"@@\"",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "pet",
+                        "\"@@\""
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "ID inexistente",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "api_key",
+                        "value": "114905"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/pet/\"\"",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "pet",
+                        "\"\""
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {},
+                    "exec": [
+                      "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                      "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                      "});"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rota STORE - Teste exploratório",
+      "item": [
+        {
+          "name": "Inventory",
+          "item": [
+            {
+              "name": "Consultar Inventory",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Response body is not empty\", function () {\r",
+                      "    pm.expect(pm.response.json()).to.not.be.empty;\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "pm.test(\"Inventory retornado com sucesso\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Retorno é um JSON com dados\", function () {\r\n    pm.expect(pm.response.json()).to.be.an(\"object\");\r\n});\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/store/inventory",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "store",
+                    "inventory"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Category Standardization Check",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Inventory retorna múltiplas categorias\", function () {\r",
+                      "    const keys = Object.keys(pm.response.json());\r",
+                      "    pm.expect(keys.length).to.be.greaterThan(0);\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/store/inventory",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "store",
+                    "inventory"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Orders",
+          "item": [
+            {
+              "name": "Create Order",
+              "item": [
+                {
+                  "name": "Valid Data",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Pedido criado com sucesso\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Resposta contém o ID do pedido\", function () {\r",
+                          "    pm.expect(pm.response.json()).to.have.property(\"id\");\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 101,\r\n  \"petId\": 10,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2026-01-29T15:00:00.000Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Missing Required Fields",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve rejeitar payload incompleto\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 102\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Invalid Data Types",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve validar tipos inválidos\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": \"abc\",\r\n  \"petId\": \"xyz\",\r\n  \"quantity\": \"duas\",\r\n  \"shipDate\": \"ontem\",\r\n  \"status\": 123,\r\n  \"complete\": \"sim\"\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Negative Quantity",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve rejeitar quantidade negativa\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 103,\r\n  \"petId\": 10,\r\n  \"quantity\": -3,\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Zero Quantity",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve rejeitar quantidade zero\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 104,\r\n  \"petId\": 10,\r\n  \"quantity\": 0,\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Invalid Status",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve validar status inválido\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 422]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 105,\r\n  \"petId\": 10,\r\n  \"quantity\": 1,\r\n  \"status\": \"flying\",\r\n  \"complete\": true\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Undocumented Extra Field",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API responde ao payload com campo extra\", function () {\r",
+                          "    pm.response.to.exist;\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"id\": 106,\r\n  \"petId\": 10,\r\n  \"quantity\": 1,\r\n  \"status\": \"placed\",\r\n  \"complete\": true,\r\n  \"coupon\": \"PROMO10\"\r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Get Order",
+              "item": [
+                {
+                  "name": "Valid ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Pedido encontrado com sucesso\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"ID retornado corresponde ao solicitado\", function () {\r",
+                          "    pm.expect(pm.response.json().id).to.eql(101);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/101",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "101"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Non-existent ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Pedido encontrado com sucesso\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"ID retornado corresponde ao solicitado\", function () {\r",
+                          "    pm.expect(pm.response.json().id).to.eql(101);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/999999",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "999999"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Invalid ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API rejeita ID inválido\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/abc",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "abc"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Zero ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API trata ID zero como inválido\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/0",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "0"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Negative ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API rejeita ID negativo\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/-1",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "-1"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Delete Order",
+              "item": [
+                {
+                  "name": "Valid ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Pedido excluído com sucesso\", function () {\r",
+                          "    pm.response.to.have.status(200);\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/101",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "101"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Non-existent ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API retorna 404 ao excluir pedido inexistente\", function () {\r",
+                          "    pm.response.to.have.status(404);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/999999",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "999999"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Invalid ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API rejeita ID inválido no delete\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/abc",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "abc"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Repeated Deletion",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API retorna 404 ao excluir pedido já removido\", function () {\r",
+                          "    pm.response.to.have.status(404);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "pm.test(\"API retorna 404 ao excluir pedido já removido\", function () {\r\n    pm.response.to.have.status(404);\r\n});\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/101\n",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "101\n"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Zero ID",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"API deve rejeitar delete com ID zero\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/store/order/0",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "store",
+                        "order",
+                        "0"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rota USER",
+      "item": [
+        {
+          "name": "Negative testing",
+          "item": [
+            {
+              "name": "/../../",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n    \"id\": 1,\r\n    \"username\": \"/../../\",\r\n    \"firstName\": \"FaltaUserName\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"joao.silva@email.com\",\r\n    \"password\": \"hashed_password_123\",\r\n    \"phone\": \"+5511999998888\",\r\n    \"userStatus\": 1\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}",
+                  "host": [
+                    "{{base}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "null",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n    \"id\": 1,\r\n    \"username\": null,\r\n    \"firstName\": \"FaltaUserName\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"joao.silva@email.com\",\r\n    \"password\": \"hashed_password_123\",\r\n    \"phone\": \"+5511999998888\",\r\n    \"userStatus\": 1\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}",
+                  "host": [
+                    "{{base}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "/../../",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "null",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/null",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "null"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "/../../",
+              "request": {
+                "method": "DELETE",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "null Copy",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/null",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "null"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Api permite que um usuário tenha username de um endpoint",
+          "item": [
+            {
+              "name": "Cria usuario com username login",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"login\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}",
+                  "host": [
+                    "{{base}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Procura o username login mas a api entende que é metodo de login",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/login",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "tenta atualizar o username login mas a api entende que esta sendo tentado atualizar o endpoint login",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n    \"id\": 2,\r\n    \"username\": \"usuario1\",\r\n    \"firstName\": \"Lionel\",\r\n    \"lastName\": \"Messi\",\r\n    \"email\": \"LionelMessi@email.com\",\r\n    \"password\": \"LionelMessi\",\r\n    \"phone\": \"11999990002\",\r\n    \"userStatus\": 1\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "tenta deletar o usuario mas a api entende que esta sendo tentado deletar um endpoint",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/login",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "api permite usuarios duplicados",
+          "item": [
+            {
+              "name": "criando usuario son goku",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"SonGoku\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}",
+                  "host": [
+                    "{{base}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "criando usuario son goku novamente",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"SonGoku\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}",
+                  "host": [
+                    "{{base}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deleta o usuario son goku",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/SonGoku",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "SonGoku"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Procura o usuario son goku",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Api permite que um usuário seja atualizado para um username já existente",
+          "item": [
+            {
+              "name": "cria dois usuarios",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {\r\n    \"id\": 1,\r\n    \"username\": \"usuario1\",\r\n    \"firstName\": \"Joao\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"usuario1@email.com\",\r\n    \"password\": \"senhaSegura1\",\r\n    \"phone\": \"11999990001\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"username\": \"usuario2\",\r\n    \"firstName\": \"Maria\",\r\n    \"lastName\": \"Souza\",\r\n    \"email\": \"usuario2@email.com\",\r\n    \"password\": \"senhaSegura2\",\r\n    \"phone\": \"11999990002\",\r\n    \"userStatus\": 1\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}/createWithList",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "createWithList"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "atualiza usuario com username 2",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n    \"id\": 2,\r\n    \"username\": \"usuario1\",\r\n    \"firstName\": \"Lionel\",\r\n    \"lastName\": \"Messi\",\r\n    \"email\": \"LionelMessi@email.com\",\r\n    \"password\": \"LionelMessi\",\r\n    \"phone\": \"11999990002\",\r\n    \"userStatus\": 1\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base}}/usuario2",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "usuario2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "procura usuario com username1",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/usuario1",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "usuario1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "procura usuario com username2",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/usuario2",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "usuario2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleta usuario com username1",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/usuario1",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "usuario1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleta usuario com username1",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base}}/usuario2",
+                  "host": [
+                    "{{base}}"
+                  ],
+                  "path": [
+                    "usuario2"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rota USER - Caminho do usuario",
+      "item": [
+        {
+          "name": "Unhappy Path",
+          "item": [
+            {
+              "name": "Criar user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 7777,\n  \"username\": \"{{userPadrao}}\",\n  \"firstName\": 90,\n  \"lastName\": 12,\n  \"email\": invalido,\n  \"password\": \"{{senhaPadrao}}\",\n  \"phone\": \"949928230\",\n  \"userStatus\": 77\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/user",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/login?username={{userPadrao}}errado221--",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "login"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "{{userPadrao}}errado221--"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "O sistema realiza login mesmo com uma senha errada",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "https://petstore.swagger.io/v2/user/login?username={{userPadrao}}&password=",
+                      "protocol": "https",
+                      "host": [
+                        "petstore",
+                        "swagger",
+                        "io"
+                      ],
+                      "path": [
+                        "v2",
+                        "user",
+                        "login"
+                      ],
+                      "query": [
+                        {
+                          "key": "username",
+                          "value": "{{userPadrao}}"
+                        },
+                        {
+                          "key": "password",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Thu, 29 Jan 2026 19:21:07 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Methods",
+                      "value": "GET, POST, DELETE, PUT"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Headers",
+                      "value": "Content-Type, api_key, Authorization"
+                    },
+                    {
+                      "key": "X-Expires-After",
+                      "value": "Thu Jan 29 20:21:07 UTC 2026"
+                    },
+                    {
+                      "key": "X-Rate-Limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Jetty(9.2.9.v20150224)"
+                    }
+                  ],
+                  "cookie": [
+                    {
+                      "expires": "Invalid Date",
+                      "domain": "",
+                      "path": ""
+                    }
+                  ],
+                  "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"logged in user session:1769714467615\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Listar User",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/v2/user/{{userPadrao}}pkkl",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "{{userPadrao}}pkkl"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar user",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/v2/user/{{userPadrao}}invalido",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "{{userPadrao}}invalido"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500,405]);\r",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Edge Cases",
+          "item": [
+            {
+              "name": "Criar user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/user",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "User foi criado sem o campo Nome, um campo obrigatório considerando que é a única forma de encontrar um user",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"77779\",\n  \"email\":2111111111111111111111111,\n  \"password\":8,\n  \"phone\": 99999,\n  \"userStatus\": 0\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/v2/user",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Thu, 29 Jan 2026 21:03:35 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Methods",
+                      "value": "GET, POST, DELETE, PUT"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Headers",
+                      "value": "Content-Type, api_key, Authorization"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Jetty(9.2.9.v20150224)"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"77779\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Login",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/login?username=&password=",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "login"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": ""
+                    },
+                    {
+                      "key": "password",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "O login não faz nenhuma validação",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/v2/user/login?username=&password=",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user",
+                        "login"
+                      ],
+                      "query": [
+                        {
+                          "key": "username",
+                          "value": ""
+                        },
+                        {
+                          "key": "password",
+                          "value": ""
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Thu, 29 Jan 2026 20:06:12 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Methods",
+                      "value": "GET, POST, DELETE, PUT"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Headers",
+                      "value": "Content-Type, api_key, Authorization"
+                    },
+                    {
+                      "key": "X-Expires-After",
+                      "value": "Thu Jan 29 21:06:12 UTC 2026"
+                    },
+                    {
+                      "key": "X-Rate-Limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Jetty(9.2.9.v20150224)"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"logged in user session:1769717172603\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Listar User",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/v2/user/",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar user",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/v2/user/",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.test(\"O request deve falhar com um status de erro\", function () {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500, 405]);\r",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Happy path",
+          "item": [
+            {
+              "name": "Criar user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 7777,\n  \"username\": \"{{userPadrao}}\",\n  \"firstName\": \"123igo\",\n  \"lastName\": \"teste\",\n  \"email\": \"Pla@ia.com\",\n  \"password\": \"{{senhaPadrao}}\",\n  \"phone\": \"949928230\",\n  \"userStatus\": 77\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/user",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/login?username={{userPadrao}}&password=&={{senhaPadrao}}",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "login"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "{{userPadrao}}"
+                    },
+                    {
+                      "key": "password",
+                      "value": ""
+                    },
+                    {
+                      "key": null,
+                      "value": "{{senhaPadrao}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Listar User",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/v2/user/{{userPadrao}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "{{userPadrao}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar user",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 7777,\n  \"username\": \"{{userPadrao}}\",\n  \"firstName\": \"MUDANDO PARA O TESTE\",\n  \"lastName\": \"MUDANDO PARA O TESTE\",\n  \"email\": \"Pla@ia.com\",\n  \"password\": \"{{senhaPadrao}}\",\n  \"phone\": \"949928230\",\n  \"userStatus\": 77\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/{{userPadrao}}",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "{{userPadrao}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar user",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/{{userPadrao}}",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "{{userPadrao}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": ""
+    },
+    {
+      "key": "senhaPadrao",
+      "value": ""
+    },
+    {
+      "key": "userPadrao",
+      "value": ""
+    },
+    {
+      "key": "base",
+      "value": ""
+    }
+  ]
+}
