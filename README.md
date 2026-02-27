@@ -12,7 +12,7 @@ Aqui estão reunidos as evidências, exercícios e materiais produzidos ao longo
 
 ---
 
-## Objetivos do Repositório
+## Objetivos 
 
 - Documentar as atividades realizadas durante a Fase 1 do estágio
 - Centralizar planos de teste, evidências, relatórios e exercícios
@@ -21,7 +21,7 @@ Aqui estão reunidos as evidências, exercícios e materiais produzidos ao longo
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura
 
 ```text
 Documentos/
