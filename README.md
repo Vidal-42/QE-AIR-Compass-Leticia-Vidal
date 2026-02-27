@@ -4,11 +4,9 @@
 
 ## Repositório
 
-Repositório destinado à documentação das atividades desenvolvidas durante o programa AIR (Academic Internship Program) da CompassUOL, na trilha de Quality Engineering & AI.
-
 Este ambiente foi criado com o objetivo de documentar e organizar as atividades desenvolvidas durante o programa **AIR (Academic Internship Program)** da **Compass UOL**, na trilha de **Quality Engineering**.
 
-Aqui estão reunidos as evidências, exercícios e materiais produzidos ao longo das sprints da **Fase 1 (Estágio)**, e posteriormente estruturados durante a **Fase 2 (Trainee)** para fins de organização, versionamento e documentação.
+Aqui estão reunidos as evidências, exercícios e materiais produzidos ao longo das 6 Sprints da **Fase 1 (Estágio)**, e posteriormente estruturados durante a **Fase 2 (Trainee)** para fins de organização, versionamento e documentação.
 
 ---
 
