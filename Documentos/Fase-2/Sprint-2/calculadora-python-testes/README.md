@@ -23,15 +23,28 @@ Também foram aplicadas boas práticas como:
 
 # Operações Implementadas
 
+## Validação para verificar se os valores passados para a função são booleanos ou strings e subir uma mensagem de erro caso for.
+![Validação inicial no arquivo calculadora.py](Evidencias/Validacao_valores_booleanos_e_strings.png)
+
 ## A calculadora possui as seguintes operações:
 
 ### Soma
+![Validação inicial no arquivo calculadora.py](Evidencias/soma.png)
+
 ### Subtração
+![Validação inicial no arquivo calculadora.py](Evidencias/subtracao.png)
+
 ### Multiplicação
-### Divisão
-### Divisão com exceção (tratamento de divisão por zero)
-### Raiz quadrada
+![Validação inicial no arquivo calculadora.py](Evidencias/multiplicacao.png)
+
+### Divisão comum e com exceção (tratamento de divisão por zero)
+![Validação inicial no arquivo calculadora.py](Evidencias/divisao.png)
+
 ### Potência
+![Validação inicial no arquivo calculadora.py](Evidencias/potencia.png)
+
+### Raiz quadrada
+![Validação inicial no arquivo calculadora.py](Evidencias/raiz_quadrada.png)
 
 ---
 
@@ -94,6 +107,7 @@ Esse comando irá:
 - Uso de Git e GitHub para versionamento de código  
 
 Esse projeto reforça a importância de garantir que o software funcione corretamente não apenas em cenários ideais, mas também em situações de erro ou entradas inválidas.
+
 
 
 
