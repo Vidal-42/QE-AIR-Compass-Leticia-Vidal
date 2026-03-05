@@ -29,22 +29,22 @@ Também foram aplicadas boas práticas como:
 ## A calculadora possui as seguintes operações:
 
 ### Soma
-![Validação inicial no arquivo calculadora.py](Evidencias/soma.png)
+![soma](Evidencias/soma.png)
 
 ### Subtração
-![Validação inicial no arquivo calculadora.py](Evidencias/subtracao.png)
+![subtracao](Evidencias/subtracao.png)
 
 ### Multiplicação
-![Validação inicial no arquivo calculadora.py](Evidencias/multiplicacao.png)
+![multiplicacao](Evidencias/multiplicacao.png)
 
 ### Divisão comum e com exceção (tratamento de divisão por zero)
-![Validação inicial no arquivo calculadora.py](Evidencias/divisao.png)
+![divisao](Evidencias/divisao.png)
 
 ### Potência
-![Validação inicial no arquivo calculadora.py](Evidencias/potencia.png)
+![potencia.py](Evidencias/potencia.png)
 
 ### Raiz quadrada
-![Validação inicial no arquivo calculadora.py](Evidencias/raiz_quadrada.png)
+![raiz_quadrada.py](Evidencias/raiz_quadrada.png)
 
 ---
 
@@ -107,6 +107,7 @@ Esse comando irá:
 - Uso de Git e GitHub para versionamento de código  
 
 Esse projeto reforça a importância de garantir que o software funcione corretamente não apenas em cenários ideais, mas também em situações de erro ou entradas inválidas.
+
 
 
 
