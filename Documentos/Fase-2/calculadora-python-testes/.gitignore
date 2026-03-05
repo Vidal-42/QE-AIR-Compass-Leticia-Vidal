@@ -1,0 +1,20 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+
+# Coverage
+.coverage
+htmlcov/
+
+# Virtual environment
+.env/
+.venv/
+venv/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
