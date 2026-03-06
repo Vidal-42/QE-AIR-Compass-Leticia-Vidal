@@ -109,7 +109,9 @@ Esse comando irá:
 Esse projeto reforça a importância de garantir que o software funcione corretamente não apenas em cenários ideais, mas também em situações de erro ou entradas inválidas.
 
 
-
+## Referências:
+- https://medium.com/@ldeassis/test-driven-development-in-python-a-practical-guide-for-intermediate-developers-fed4a41bf04e
+- https://www.thedigitalcatonline.com/blog/2020/09/11/tdd-in-python-with-pytest-part-2/
 
 
 

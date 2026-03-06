@@ -1,16 +1,12 @@
 import pytest
 from calculadora import Calculadora
 
-
 @pytest.fixture
 def calculadora():
     # Classe não mantém estado, mas uso fixture por padrão profissional.
     return Calculadora()
 
-
-# =========================
 # SOMA
-# =========================
 
 @pytest.mark.parametrize("a, b, resultado", [
     (1, 2, 3),
@@ -30,10 +26,7 @@ def test_somar_type_error(calculadora, a, b):
     with pytest.raises(TypeError):
         calculadora.somar(a, b)
 
-
-# =========================
 # SUBTRAÇÃO
-# =========================
 
 @pytest.mark.parametrize("a, b, resultado", [
     (10, 5, 5),
@@ -53,10 +46,7 @@ def test_subtrair_type_error(calculadora, a, b):
     with pytest.raises(TypeError):
         calculadora.subtrair(a, b)
 
-
-# =========================
 # MULTIPLICAÇÃO
-# =========================
 
 @pytest.mark.parametrize("a, b, resultado", [
     (2, 3, 6),
@@ -76,10 +66,7 @@ def test_multiplicar_type_error(calculadora, a, b):
     with pytest.raises(TypeError):
         calculadora.multiplicar(a, b)
 
-
-# =========================
 # DIVISÃO
-# =========================
 
 @pytest.mark.parametrize("a, b, resultado", [
     (10, 2, 5),
@@ -109,10 +96,7 @@ def test_divisao_por_zero(calculadora):
     with pytest.raises(ValueError):
         calculadora.divisao(10, 0)
 
-
-# =========================
 # POTÊNCIA
-# =========================
 
 @pytest.mark.parametrize("a, b, resultado", [
     (2, 3, 8),
@@ -137,10 +121,7 @@ def test_potencia_zero_expoente_negativo(calculadora):
     with pytest.raises(ValueError):
         calculadora.potencia(0, -1)
 
-
-# =========================
 # RAIZ QUADRADA
-# =========================
 
 @pytest.mark.parametrize("a, resultado", [
     (4, 2),
@@ -149,7 +130,6 @@ def test_potencia_zero_expoente_negativo(calculadora):
 ])
 def test_raiz_quadrada_casos_validos(calculadora, a, resultado):
     assert calculadora.raiz_quadrada(a) == pytest.approx(resultado)
-
 
 @pytest.mark.parametrize("a", [
     -4,
