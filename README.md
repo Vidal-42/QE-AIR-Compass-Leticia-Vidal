@@ -49,7 +49,7 @@ Cada sprint contém artefatos relacionados às atividades desenvolvidas, incluin
 
 ---
 
-## Sprints - Fase 1
+## Sprints - Fase-1
 
 - [Sprint-1](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-1/Sprint-1)
 - [Sprint-2](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-1/Sprint-2)
@@ -57,9 +57,13 @@ Cada sprint contém artefatos relacionados às atividades desenvolvidas, incluin
 - [Sprint-4](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-1/Sprint-4)
 - [Sprint-5](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-1/Sprint-5)
 - [Sprint-6](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-1/Sprint-6)
+
+## Sprints - Fase-2
+
+- [Sprint-1](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-2/Sprint-1)
+- [Sprint-2](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-2/Sprint-2)
   
 ---
-
 ## Contexto
 
 Este repositório foi estruturado durante a **Fase 2 do programa**, com o objetivo de consolidar e versionar os artefatos produzidos anteriormente durante a **Fase 1**, garantindo melhor organização, rastreabilidade e padronização da documentação técnica.
