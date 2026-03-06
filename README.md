@@ -61,7 +61,6 @@ Cada sprint contém artefatos relacionados às atividades desenvolvidas, incluin
 ## Sprints - Fase-2
 
 - [Sprint-1](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-2/Sprint-1)
-- [Sprint-2](https://github.com/Vidal-42/QE-AIR-Compass-Leticia-Vidal/tree/main/Documentos/Fase-2/Sprint-2)
   
 ---
 ## Contexto
