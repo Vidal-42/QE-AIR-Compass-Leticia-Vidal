@@ -1,6 +1,6 @@
 # Projeto de Automação Robot Framework - Sprint-2
 
-- Este proejto contém a resolução de 5 desafios de automação de testes focados em lógica de programação com Robot Framework e testes de API REST, desenvolvidos durante a Semana 3 da Sprint 2.
+- Este projeto contém a resolução de 5 desafios de automação de testes propostos no Curso de Automação de Testes com Robot Framework da Udemy, focados em lógica de programação com Robot Framework e testes de API REST, desenvolvidos durante a Semana 3 da Sprint 2.
 
 ## Estrutura do Projeto
 
@@ -30,7 +30,7 @@ Para executar todos os testes e organizar os logs na pasta de resultados:
 
 ```bash
 robot -d ./results tests/
+
 Para executar um teste específico:
 
-Bash
 robot -d ./results tests/04_fluxo_cadastro_login.robot
