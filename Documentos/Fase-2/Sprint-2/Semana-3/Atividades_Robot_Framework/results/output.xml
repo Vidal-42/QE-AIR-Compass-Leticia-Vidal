@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-03-16T15:34:39.926278" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests">
+<suite id="s1-s1" name="01 Lista Meses" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests\01_lista_meses.robot">
+<test id="s1-s1-t1" name="Cenário: Listar todos os meses do ano" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${\n}--- Calendário ---</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.958032" elapsed="0.000468"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.958930" elapsed="0.000390"/>
+</kw>
+<var name="${mes}">Janeiro</var>
+<status status="PASS" start="2026-03-16T15:34:39.958868" elapsed="0.000521"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.959515" elapsed="0.000323"/>
+</kw>
+<var name="${mes}">Fevereiro</var>
+<status status="PASS" start="2026-03-16T15:34:39.959468" elapsed="0.000438"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.960046" elapsed="0.000344"/>
+</kw>
+<var name="${mes}">Março</var>
+<status status="PASS" start="2026-03-16T15:34:39.960001" elapsed="0.000454"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.960586" elapsed="0.000289"/>
+</kw>
+<var name="${mes}">Abril</var>
+<status status="PASS" start="2026-03-16T15:34:39.960543" elapsed="0.000395"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.961298" elapsed="0.001399"/>
+</kw>
+<var name="${mes}">Maio</var>
+<status status="PASS" start="2026-03-16T15:34:39.960996" elapsed="0.001745"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.962887" elapsed="0.000446"/>
+</kw>
+<var name="${mes}">Junho</var>
+<status status="PASS" start="2026-03-16T15:34:39.962825" elapsed="0.000545"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.963498" elapsed="0.000353"/>
+</kw>
+<var name="${mes}">Julho</var>
+<status status="PASS" start="2026-03-16T15:34:39.963443" elapsed="0.000438"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.963987" elapsed="0.000926"/>
+</kw>
+<var name="${mes}">Agosto</var>
+<status status="PASS" start="2026-03-16T15:34:39.963940" elapsed="0.001198"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.965470" elapsed="0.000387"/>
+</kw>
+<var name="${mes}">Setembro</var>
+<status status="PASS" start="2026-03-16T15:34:39.965400" elapsed="0.000499"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.966102" elapsed="0.000449"/>
+</kw>
+<var name="${mes}">Outubro</var>
+<status status="PASS" start="2026-03-16T15:34:39.965998" elapsed="0.000652"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.966820" elapsed="0.002461"/>
+</kw>
+<var name="${mes}">Novembro</var>
+<status status="PASS" start="2026-03-16T15:34:39.966762" elapsed="0.002590"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Mês: ${mes}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.969540" elapsed="0.000955"/>
+</kw>
+<var name="${mes}">Dezembro</var>
+<status status="PASS" start="2026-03-16T15:34:39.969459" elapsed="0.001182"/>
+</iter>
+<var>${mes}</var>
+<value>@{MESES}</value>
+<status status="PASS" start="2026-03-16T15:34:39.958738" elapsed="0.011950"/>
+</for>
+<status status="PASS" start="2026-03-16T15:34:39.957486" elapsed="0.013380"/>
+</test>
+<doc>Desafio 01: Percorrer e logar meses do ano.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.956169" elapsed="0.016148"/>
+</suite>
+<suite id="s1-s2" name="02 Dicionario Dias" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests\02_dicionario_dias.robot">
+<test id="s1-s2-t1" name="Cenário: Exibir dias úteis do dicionário" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${\n}--- Dias Úteis ---</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.975880" elapsed="0.000358"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Abreviação: ${chave} -&gt; Nome: ${DIAS_SEMANA["${chave}"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.976826" elapsed="0.000536"/>
+</kw>
+<var name="${chave}">seg</var>
+<status status="PASS" start="2026-03-16T15:34:39.976771" elapsed="0.000665"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Abreviação: ${chave} -&gt; Nome: ${DIAS_SEMANA["${chave}"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.977575" elapsed="0.000515"/>
+</kw>
+<var name="${chave}">ter</var>
+<status status="PASS" start="2026-03-16T15:34:39.977528" elapsed="0.000635"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Abreviação: ${chave} -&gt; Nome: ${DIAS_SEMANA["${chave}"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.978303" elapsed="0.000491"/>
+</kw>
+<var name="${chave}">qua</var>
+<status status="PASS" start="2026-03-16T15:34:39.978253" elapsed="0.000608"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Abreviação: ${chave} -&gt; Nome: ${DIAS_SEMANA["${chave}"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.978993" elapsed="0.000474"/>
+</kw>
+<var name="${chave}">qui</var>
+<status status="PASS" start="2026-03-16T15:34:39.978951" elapsed="0.000584"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Abreviação: ${chave} -&gt; Nome: ${DIAS_SEMANA["${chave}"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.979673" elapsed="0.000506"/>
+</kw>
+<var name="${chave}">sex</var>
+<status status="PASS" start="2026-03-16T15:34:39.979628" elapsed="0.000617"/>
+</iter>
+<var>${chave}</var>
+<value>@{DIAS_SEMANA.keys()}</value>
+<status status="PASS" start="2026-03-16T15:34:39.976341" elapsed="0.003950"/>
+</for>
+<status status="PASS" start="2026-03-16T15:34:39.975297" elapsed="0.005170"/>
+</test>
+<doc>Desafio 02: Dicionário de dias da semana.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.973154" elapsed="0.008083"/>
+</suite>
+<suite id="s1-s3" name="03 Palavras Chave" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests\03_palavras_chave.robot">
+<test id="s1-s3-t1" name="Cenário: Criar email de usuário para teste" line="5">
+<kw name="Gerar email dinâmico" owner="logica_utils">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-03-16T15:34:39.996123" level="INFO">${aleatorio} = OhyM</msg>
+<var>${aleatorio}</var>
+<arg>4</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.995894" elapsed="0.000269"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-16T15:34:39.996478" level="INFO">${email} = Leticia_Vidal_OhyM@automacao.com</msg>
+<var>${email}</var>
+<arg>${nome}_${sobrenome}_${aleatorio}@automacao.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.996242" elapsed="0.000260"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-03-16T15:34:39.996537" elapsed="0.000049"/>
+</return>
+<msg time="2026-03-16T15:34:39.996671" level="INFO">${EMAIL_GERADO} = Leticia_Vidal_OhyM@automacao.com</msg>
+<var>${EMAIL_GERADO}</var>
+<arg>Leticia</arg>
+<arg>Vidal</arg>
+<status status="PASS" start="2026-03-16T15:34:39.995567" elapsed="0.001118"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${\n}Email gerado para o portfólio: ${EMAIL_GERADO}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:39.996891" elapsed="0.000503"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:39.995047" elapsed="0.002664"/>
+</test>
+<status status="PASS" start="2026-03-16T15:34:39.982318" elapsed="0.015929"/>
+</suite>
+<suite id="s1-s4" name="04 Fluxo Cadastro Login" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests\04_fluxo_cadastro_login.robot">
+<kw name="Conectar na API" owner="common" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-16T15:34:40.444662" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-16T15:34:40.444357" elapsed="0.000333"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-03-16T15:34:40.444974" level="INFO">Creating Session using : alias=ServeRest, url=https://serverest.dev, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=ServeRest</arg>
+<arg>url=${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-03-16T15:34:40.444774" elapsed="0.000341"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:40.443954" elapsed="0.001214"/>
+</kw>
+<test id="s1-s4-t1" name="Cenário: Cadastrar usuário e validar acesso" line="7">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-16T15:34:40.445697" level="INFO">${EMAIL} = leticia_vidal_test@automacao.com</msg>
+<var>${EMAIL}</var>
+<arg>leticia_vidal_test@automacao.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-16T15:34:40.445496" elapsed="0.000220"/>
+</kw>
+<kw name="Cadastrar um novo usuário" owner="api_usuarios">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-16T15:34:40.446787" level="INFO">${payload} = {'nome': 'Leticia Vidal', 'email': 'leticia_vidal_test@automacao.com', 'password': '123456', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=${admin}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-16T15:34:40.446392" elapsed="0.000416"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-03-16T15:34:41.529034" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '117'} 
+ body=b'{"nome": "Leticia Vidal", "email": "leticia_vidal_test@automacao.com", "password": "123456", "administrador": "true"}' 
+ </msg>
+<msg time="2026-03-16T15:34:41.529347" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'fbc3e4729d11b06f316fab9a47e1ac59;o=1', 'date': 'Mon, 16 Mar 2026 18:34:41 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "YiZUSLHdfgqjouHd"
+} 
+ </msg>
+<msg time="2026-03-16T15:34:41.529862" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/usuarios</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-03-16T15:34:40.446891" elapsed="1.083042"/>
+</kw>
+<return>
+<value>${resposta}</value>
+<status status="PASS" start="2026-03-16T15:34:41.530212" elapsed="0.000614"/>
+</return>
+<arg>Leticia Vidal</arg>
+<arg>${EMAIL}</arg>
+<arg>123456</arg>
+<arg>true</arg>
+<arg>201</arg>
+<status status="PASS" start="2026-03-16T15:34:40.446020" elapsed="1.085094"/>
+</kw>
+<kw name="Realizar login com sucesso" owner="api_usuarios">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-16T15:34:41.533373" level="INFO">${payload} = {'email': 'leticia_vidal_test@automacao.com', 'password': '123456'}</msg>
+<var>${payload}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.532841" elapsed="0.000571"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-03-16T15:34:41.740948" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '67'} 
+ body=b'{"email": "leticia_vidal_test@automacao.com", "password": "123456"}' 
+ </msg>
+<msg time="2026-03-16T15:34:41.741087" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '0077131c9c3daa7b316fab9a47e1afd8', 'date': 'Mon, 16 Mar 2026 18:34:41 GMT', 'server': 'Google Frontend', 'Content-Length': '292'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxldGljaWFfdmlkYWxfdGVzdEBhdXRvbWFjYW8uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3NzM2ODYwODEsImV4cCI6MTc3MzY4NjY4MX0.GVa6IX-mKYLQRoYCY4U_vuJNN1FnY6q9048z3VphA4M"
+} 
+ </msg>
+<msg time="2026-03-16T15:34:41.741278" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=ServeRest</arg>
+<arg>url=/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.533550" elapsed="0.207765"/>
+</kw>
+<return>
+<value>${resposta.json()}</value>
+<status status="PASS" start="2026-03-16T15:34:41.741454" elapsed="0.000064"/>
+</return>
+<msg time="2026-03-16T15:34:41.742366" level="INFO">${RESPOSTA} = {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxldGljaWFfdmlkYWxfdGVzdEBhdXRvbWFjYW8uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE...</msg>
+<var>${RESPOSTA}</var>
+<arg>${EMAIL}</arg>
+<arg>123456</arg>
+<status status="PASS" start="2026-03-16T15:34:41.532360" elapsed="0.210051"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>authorization</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.743044" elapsed="0.000521"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${\n}Login realizado com sucesso!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.744191" elapsed="0.000872"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:40.445206" elapsed="1.300316"/>
+</test>
+<status status="PASS" start="2026-03-16T15:34:39.998857" elapsed="1.748012"/>
+</suite>
+<suite id="s1-s5" name="05 Percorrendo Listas" source="C:\Users\vidal\OneDrive\Documents\atividades_automacao\robotframework\tests\05_percorrendo_listas.robot">
+<test id="s1-s5-t1" name="Cenário: Filtrar números específicos em uma lista" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${\n}Iniciando filtro de valores...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.753272" elapsed="0.001635"/>
+</kw>
+<kw name="Analisar lista de números de forma inteligente" owner="logica_utils">
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="${num} == 5 or ${num} == 10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Alvo encontrado: Eu sou o número ${num}!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-03-16T15:34:41.756730" elapsed="0.000018"/>
+</kw>
+<status status="NOT RUN" start="2026-03-16T15:34:41.756514" elapsed="0.000287"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>O número ${num} não é 5 nem 10.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.756885" elapsed="0.000551"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.756827" elapsed="0.000691"/>
+</branch>
+<status status="PASS" start="2026-03-16T15:34:41.756489" elapsed="0.001062"/>
+</if>
+<var name="${num}">1</var>
+<status status="PASS" start="2026-03-16T15:34:41.756405" elapsed="0.001171"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${num} == 5 or ${num} == 10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Alvo encontrado: Eu sou o número ${num}!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.757910" elapsed="0.000582"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.757743" elapsed="0.000789"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>O número ${num} não é 5 nem 10.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-03-16T15:34:41.758627" elapsed="0.000018"/>
+</kw>
+<status status="NOT RUN" start="2026-03-16T15:34:41.758552" elapsed="0.000119"/>
+</branch>
+<status status="PASS" start="2026-03-16T15:34:41.757732" elapsed="0.000952"/>
+</if>
+<var name="${num}">5</var>
+<status status="PASS" start="2026-03-16T15:34:41.757705" elapsed="0.000998"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${num} == 5 or ${num} == 10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Alvo encontrado: Eu sou o número ${num}!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-03-16T15:34:41.758934" elapsed="0.000011"/>
+</kw>
+<status status="NOT RUN" start="2026-03-16T15:34:41.758817" elapsed="0.000146"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>O número ${num} não é 5 nem 10.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.759016" elapsed="0.000514"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.758977" elapsed="0.000590"/>
+</branch>
+<status status="PASS" start="2026-03-16T15:34:41.758809" elapsed="0.000772"/>
+</if>
+<var name="${num}">7</var>
+<status status="PASS" start="2026-03-16T15:34:41.758792" elapsed="0.000803"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${num} == 5 or ${num} == 10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Alvo encontrado: Eu sou o número ${num}!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.759864" elapsed="0.000403"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.759719" elapsed="0.000587"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>O número ${num} não é 5 nem 10.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-03-16T15:34:41.760387" elapsed="0.000011"/>
+</kw>
+<status status="NOT RUN" start="2026-03-16T15:34:41.760326" elapsed="0.000089"/>
+</branch>
+<status status="PASS" start="2026-03-16T15:34:41.759708" elapsed="0.000720"/>
+</if>
+<var name="${num}">10</var>
+<status status="PASS" start="2026-03-16T15:34:41.759688" elapsed="0.000753"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${num} == 5 or ${num} == 10">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Alvo encontrado: Eu sou o número ${num}!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-03-16T15:34:41.760928" elapsed="0.000025"/>
+</kw>
+<status status="NOT RUN" start="2026-03-16T15:34:41.760585" elapsed="0.000410"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>O número ${num} não é 5 nem 10.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T15:34:41.761126" elapsed="0.000413"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.761024" elapsed="0.000554"/>
+</branch>
+<status status="PASS" start="2026-03-16T15:34:41.760554" elapsed="0.001040"/>
+</if>
+<var name="${num}">12</var>
+<status status="PASS" start="2026-03-16T15:34:41.760535" elapsed="0.001075"/>
+</iter>
+<var>${num}</var>
+<value>@{lista_numeros}</value>
+<status status="PASS" start="2026-03-16T15:34:41.756229" elapsed="0.005400"/>
+</for>
+<arg>${VALORES}</arg>
+<status status="PASS" start="2026-03-16T15:34:41.755884" elapsed="0.005783"/>
+</kw>
+<status status="PASS" start="2026-03-16T15:34:41.752941" elapsed="0.009011"/>
+</test>
+<status status="PASS" start="2026-03-16T15:34:41.748179" elapsed="0.014600"/>
+</suite>
+<status status="PASS" start="2026-03-16T15:34:39.927660" elapsed="1.836159"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="5" fail="0" skip="0">Tests</stat>
+<stat name="01 Lista Meses" id="s1-s1" pass="1" fail="0" skip="0">Tests.01 Lista Meses</stat>
+<stat name="02 Dicionario Dias" id="s1-s2" pass="1" fail="0" skip="0">Tests.02 Dicionario Dias</stat>
+<stat name="03 Palavras Chave" id="s1-s3" pass="1" fail="0" skip="0">Tests.03 Palavras Chave</stat>
+<stat name="04 Fluxo Cadastro Login" id="s1-s4" pass="1" fail="0" skip="0">Tests.04 Fluxo Cadastro Login</stat>
+<stat name="05 Percorrendo Listas" id="s1-s5" pass="1" fail="0" skip="0">Tests.05 Percorrendo Listas</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
