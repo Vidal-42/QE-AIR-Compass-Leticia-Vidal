@@ -1,0 +1,11 @@
+# Robot Framework outputs
+results/*.html
+results/*.xml
+results/*.png
+
+# Python
+__pypache__/
+*.pyc
+
+# Local env
+.env
