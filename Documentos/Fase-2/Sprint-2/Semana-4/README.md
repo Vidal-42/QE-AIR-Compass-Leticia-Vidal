@@ -1,77 +1,73 @@
-# *Sprint 2* - Engenharia de Qualidade
-# *Automação de Testes REST*: API ServeRest com Robot Framework
+# *Challenge 3* - Quality Engineering & AI — CompassUOL | Fase 2
+# **Automação de Testes da API ServeRest**
 
-## Contexto do Projeto
-Este repositório contém a infraestrutura de testes automatizados desenvolvida para a API ServeRest durante o programa de bolsas da AI/R Compass UOL. O foco da implementação foi substituir validações manuais por scripts robustos que cobrem desde o comportamento básico dos endpoints até cenários complexos de segurança e lógica de negócio.
+## Objetivo do Projeto
+Este repositório consolida a suíte de testes automatizados desenvolvida para a API ServeRest. O objetivo principal foi a transição do planejamento de testes exploratórios (SBTM) para uma estrutura de testes automatizados, para validar e analisar regras de negócio, fluxos positivos e nagtivos de Usuários, Login, Produtos e Carrinhos em diferentes casos de teste no ambiente.
 
-## Escopo e Entregáveis
-### A suíte foi projetada para garantir que as operações de Cadastro, Login, Gestão de Produtos e Fluxo de Carrinho operem conforme o esperado. Os principais objetivos práticos são:
+Este projeto foca em cenários de exceção, segurança (IDOR) e persistência de dados, de forma que seja possível identificar bugs e inconsistências de forma adequada.
 
-- *Validação de Regras de Negócio*: Testes que impedem, por exemplo, o cadastro de e-mails duplicados ou a criação de produtos com nomes já existentes no catálogo.
+## Decisões Técnicas e Implementação
+A arquitetura foi planejada para ser idempotente (pode ser executada várias vezes sem falhar por dados redundantes).
 
-- *Cobertura de Regressão*: Scripts específicos para monitorar bugs críticos identificados anteriormente, como a aceitação indevida de nomes vazios em produtos e falhas de segurança (IDOR) onde a API permitia a manipulação de recursos entre usuários distintos.
+- **Robot Framework & RequestsLibrary**: Escolhidos pela clareza na escrita de testes (DSL) e gerenciamento de sessões HTTP.
 
-- *Verificação de Contrato*: Checkpoints automáticos para assegurar que o esquema JSON retornado pela API contenha todas as chaves obrigatórias.
+- **Data Factory (Faker)**: Implementação de geração de massa dinâmica para e-mails e nomes reais, levando em consideração a simulação de um ecommerce na API e a maior variedade de dados, o que possibilita mais testes realistas.
 
-## Organização do Framework
-## O projeto utiliza uma arquitetura modular para separar a intenção do teste da complexidade técnica de cada requisição. A estrutura está dividida da seguinte forma:
+- **Modularização (Resources)**: Separação entre a camada de teste (o que testar) e a camada de keywords (como testar), facilitando a manutenção de endpoints.
 
+- **Tratamento de Bugs de Regressão**: Scripts configurados para expor falhas críticas de segurança, como a manipulação de tokens malformados e falhas de autorização entre usuários.
+
+## Estrutura do Repositório
 Plaintext
-Challenge_03/
-  ├── results/              # Relatórios de execução, logs e evidências em HTML
-  ├── resources/            # Camada de keywords estruturais e lógica de suporte
-  │     ├── api.resource           # Centraliza a criação de sessões e métodos HTTP (POST, DELETE, etc.)
-  │     ├── auth.resource          # Lógica de obtenção e persistência do Token Bearer
-  │     ├── usuarios.resource      # Encapsula as chamadas aos endpoints de /usuarios
-  │     ├── produtos.resource      # Encapsula as chamadas aos endpoints de /produtos
-  │     ├── carrinho.resource      # Gerencia o ciclo de vida do carrinho (adição e checkout)
-  │     ├── data_factory.resource  # Gerador de massa dinâmica (nomes, e-mails e IDs aleatórios)
-  │     └── common.resource        # Validações transversais e limpeza de massa (Teardowns)
-  ├── tests/                # Casos de teste declarativos (focados em comportamento)
-  │     ├── login.robot            # Testes de autenticação positiva e negativa
-  │     ├── usuarios.robot         # Fluxos de CRUD e validação de duplicidade
-  │     ├── produtos.robot         # Gestão de inventário e permissões de Admin
-  │     └── carrinho.robot         # Fluxos de compra end-to-end
-  ├── .gitignore            # Filtro para não versionar logs locais e ambientes virtuais
-  ├── README.md             # Guia técnico do projeto
-  └── requirements.txt      # Bibliotecas Python necessárias para rodar o projeto
-Decisões Técnicas e Implementação
-Robot Framework & Libraries: Utilização da RequestsLibrary para o handshake com a API, além de Collections e String para manipular os dicionários de resposta e formatar strings dinâmicas.
+Semana-4/
+  ├── resources/              # Camada de abstração (Keywords e Lógica)
+  │     ├── base_api.resource       # Setup de sessão, Auth Admin e verbos HTTP
+  │     ├── usuarios.resource       # Lógica específica do endpoint /usuarios
+  │     ├── produtos.resource       # Regras de negócio e payloads de /produtos
+  │     └── carrinhos.resource      # Fluxos de adição e checkout de /carrinhos
+  ├── tests/                  # Camada de execução (Cenários de Teste)
+  │     ├── login.robot             # Autenticação e integridade de Token
+  │     ├── usuarios.robot          # Gestão de contas e testes de IDOR
+  │     ├── produtos.robot          # Inventário e controle de perfil Admin
+  │     └── carrinhos.robot         # Regras de estoque e fluxo de compra
+  ├── results/                # Artefatos gerados pós-execução (ignorados no Git)
+  ├── .gitignore              # Proteção contra versionamento de logs e venv
+  └── requirements.txt        # Dependências do projeto (Robot, Requests, Faker)
 
-Massa de Dados Idempotente: O arquivo data_factory.resource utiliza variáveis de tempo e strings randômicas para que cada execução gere um novo usuário/produto, evitando que o teste falhe por dados já existentes no banco.
+## Guia de Configuração e Instalação
+1. Pré-requisitos
+Python 3.10 ou superior instalado.
 
-Abstração por Keywords: Os arquivos na pasta tests/ não contêm URLs ou payloads brutos. Toda a lógica de montagem do JSON e headers está isolada nos resources, facilitando a manutenção caso a API sofra alterações estruturais.
+Git configurado.
 
-Segurança Ativa: Implementação de verificações de status code 403 (Forbidden) em cenários onde usuários sem privilégios tentam acessar rotas administrativas ou recursos de terceiros.
+2. Clonagem e Acesso
+Bash
+git clone https://github.com/seu-usuario/QE-AIR-Compass-Leticia-Vidal.git
+cd QE-AIR-Compass-Leticia-Vidal/Documentos/Fase-2/Sprint-2/Semana-4
 
-Setup e Configuração Local
-Para preparar o ambiente e rodar os scripts, siga os comandos:
-
-Clonagem do Repositório:
+3. Instalação de Dependências
+Recomenda-se o uso de um ambiente virtual:
 
 Bash
-git clone git@github.com:seu-usuario/qa-air-compass-uol.git
-cd qa-air-compass-uol/Documentos/Fase_02/Sprint_02/Semana_04/Challenge_3
-Instalação dos Pacotes:
+# Instalação direta das bibliotecas necessárias
+pip install robotframework robotframework-requests robotframework-faker
 
-Bash
-pip install -r requirements.txt
-Execução dos Testes
-A suíte permite execuções totais ou direcionadas através de seletores nativos do Robot.
-
-Rodar todos os cenários:
+## Execução dos Testes
+Para rodar a suíte completa e gerar os relatórios na pasta organizada:
 
 Bash
 robot -d ./results tests/
-Rodar apenas validações de bugs (Regressão):
+Para rodar apenas um módulo específico (ex: Login):
 
 Bash
-robot -d ./results -i regressao tests/
-Análise de Evidências
-O Robot Framework gera logs visuais que podem ser consultados na pasta ./results:
+robot -d ./results tests/login.robot
+📊 Visualização de Evidências
 
-log.html: Exibe o passo a passo de cada teste, incluindo o payload enviado e o corpo da resposta recebida da API ServeRest. Essencial para depuração técnica.
+**Após o término dos testes, o framework gera automaticamente dois arquivos fundamentais na pasta /results:**
 
-report.html: Fornece um dashboard resumido com a taxa de sucesso da execução e o tempo gasto em cada suíte.
+- log.html (Depuração Técnica): Permite inspecionar cada requisição enviada, o status code recebido e o corpo do JSON. É aqui que validamos os 3 bugs identificados (IDOR, Token e Carrinho).
 
-Para visualizar, basta abrir qualquer um dos arquivos .html no seu navegador.
+- report.html (Visão Executiva): Dashboard com a taxa de sucesso e tempo de execução.
+
+> [!NOTE]
+> Sobre os resultados: Atualmente, a execução apresenta 14 PASS / 3 FAIL. As falhas são deliberadas e servem como evidência de bugs reais encontrados na API ServeRest, detalhados no relatório de Issues do projeto.
