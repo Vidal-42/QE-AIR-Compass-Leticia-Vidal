@@ -1,0 +1,55 @@
+# ==========================================
+# RELATÓRIOS E LOGS (Robot Framework)
+# ==========================================
+# Ignora a pasta de resultados onde ficam os prints, logs e reports
+results/
+browser/
+pabot_results/
+
+# Ignora ficheiros de saída específicos caso não estejam na pasta results
+output.xml
+log.html
+report.html
+selenium-screenshot-*.png
+
+# ==========================================
+# AMBIENTE VIRTUAL E PYTHON
+# ==========================================
+# Ignora bibliotecas instaladas localmente e o ambiente virtual
+venv/
+.venv/
+env/
+ENV/
+build/
+dist/
+
+# Ficheiros compilados do Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# CONFIGURAÇÕES DE IDE (VS Code / PyCharm)
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# SEGURANÇA E SISTEMA
+# ==========================================
+# Ignora ficheiros de variáveis de ambiente (onde ficam senhas/tokens)
+.env
+
+# Ficheiros de sistema (Windows e Mac)
+Thumbs.db
+.DS_Store
+
+# ==========================================
+# OUTROS
+# ==========================================
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
