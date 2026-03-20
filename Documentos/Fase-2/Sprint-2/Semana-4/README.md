@@ -18,50 +18,56 @@ A arquitetura foi planejada para ser idempotente (pode ser executada várias vez
 - **Tratamento de Bugs de Regressão**: Scripts configurados para expor falhas críticas de segurança, como a manipulação de tokens malformados e falhas de autorização entre usuários.
 
 ## Estrutura do Repositório
-Plaintext
+```
 Semana-4/
-  ├── resources/              # Camada de abstração (Keywords e Lógica)
-  │     ├── base_api.resource       # Setup de sessão, Auth Admin e verbos HTTP
-  │     ├── usuarios.resource       # Lógica específica do endpoint /usuarios
-  │     ├── produtos.resource       # Regras de negócio e payloads de /produtos
-  │     └── carrinhos.resource      # Fluxos de adição e checkout de /carrinhos
-  ├── tests/                  # Camada de execução (Cenários de Teste)
-  │     ├── login.robot             # Autenticação e integridade de Token
-  │     ├── usuarios.robot          # Gestão de contas e testes de IDOR
-  │     ├── produtos.robot          # Inventário e controle de perfil Admin
-  │     └── carrinhos.robot         # Regras de estoque e fluxo de compra
-  ├── results/                # Artefatos gerados pós-execução (ignorados no Git)
-  ├── .gitignore              # Proteção contra versionamento de logs e venv
-  └── requirements.txt        # Dependências do projeto (Robot, Requests, Faker)
+├── resources/ # Camada de abstração (Keywords e Lógica)
+│   ├── base_api.resource # Setup de sessão, Auth Admin e verbos HTTP
+│   ├── usuarios.resource # Lógica específica do endpoint /usuarios
+│   ├── produtos.resource # Regras de negócio e payloads de /produtos
+│   └── carrinhos.resource # Fluxos de adição e checkout de /carrinhos
+├── tests/ # Camada de execução (Cenários de Teste)
+│   ├── login.robot # Autenticação e integridade de Token
+│   ├── usuarios.robot # Gestão de contas e testes de IDOR
+│   ├── produtos.robot # Inventário e controle de perfil Admin
+│   └── carrinhos.robot # Regras de estoque e fluxo de compra
+├── results/ # Artefatos gerados pós-execução (ignorados no Git)
+├── .gitignore # Proteção contra versionamento de logs e venv
+└── requirements.txt # Dependências do projeto (Robot, Requests, Faker)
+```
 
-## Guia de Configuração e Instalação
-1. Pré-requisitos
-Python 3.10 ou superior instalado.
+### Guia de Configuração e Instalação
 
-Git configurado.
+#### 1. Pré-requisitos
+- Python 3.10 ou superior instalado.
+- Git configurado.
 
-2. Clonagem e Acesso
-Bash
+#### 2. Clonagem e Acesso
+```bash
 git clone https://github.com/seu-usuario/QE-AIR-Compass-Leticia-Vidal.git
 cd QE-AIR-Compass-Leticia-Vidal/Documentos/Fase-2/Sprint-2/Semana-4
+```
 
-3. Instalação de Dependências
+## 3. Instalação de Dependências
 Recomenda-se o uso de um ambiente virtual:
 
-Bash
-# Instalação direta das bibliotecas necessárias
+**Instalação direta das bibliotecas necessárias**
+```bash
 pip install robotframework robotframework-requests robotframework-faker
+```
 
 ## Execução dos Testes
 Para rodar a suíte completa e gerar os relatórios na pasta organizada:
 
-Bash
+```bash
 robot -d ./results tests/
-Para rodar apenas um módulo específico (ex: Login):
+```
 
-Bash
+Para rodar apenas um módulo específico (ex: Login):
+```bash
 robot -d ./results tests/login.robot
-📊 Visualização de Evidências
+```
+
+## Visualização de Evidências
 
 **Após o término dos testes, o framework gera automaticamente dois arquivos fundamentais na pasta /results:**
 
