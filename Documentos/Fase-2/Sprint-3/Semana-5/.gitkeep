@@ -1,0 +1,26 @@
+# Robot Framework - Logs e Reports
+# Ignora a pasta de relatórios para não poluir o histórico do Git
+reports/
+log.html
+report.html
+output.xml
+
+# Python - Arquivos temporários e Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Amazon Q & IDE
+# Ignora configurações locais do Amazon Q e VS Code
+.amazonq/
+.vscode/
+.idea/
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
