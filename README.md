@@ -39,7 +39,7 @@ Este ambiente serve como um repositório central de documentação das práticas
     └── Fase 2/
     │   ├── Sprint 1/
     │   ├── Sprint 2/
-    │   ├── Sprint 3/
+    │   └── Sprint 3/
 
 Cada sprint contém artefatos relacionados às atividades desenvolvidas, incluindo:
 
