@@ -17,7 +17,7 @@ Este ambiente serve como um repositório central de documentação das práticas
 
 ## Objetivos
 
-- Documentar as atividades realizadas durante a Fase 1 do estágio  
+- Documentar as atividades realizadas durante a Fase 1 e 2 do Programa de Bolsas
 - Centralizar planos de teste, evidências, relatórios e exercícios  
 - Aplicar boas práticas de versionamento com Git e GitHub  
 - Manter um histórico estruturado das atividades desenvolvidas  
@@ -37,6 +37,9 @@ Este ambiente serve como um repositório central de documentação das práticas
     │   └── Sprint 6/
     │
     └── Fase 2/
+    │   ├── Sprint 1/
+    │   ├── Sprint 2/
+    │   ├── Sprint 3/
 
 Cada sprint contém artefatos relacionados às atividades desenvolvidas, incluindo:
 
