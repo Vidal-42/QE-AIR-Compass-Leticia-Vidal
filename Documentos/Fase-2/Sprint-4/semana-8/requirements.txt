@@ -1,0 +1,14 @@
+# DEPENDÊNCIAS DO PROJETO - API SERVEREST
+
+# Framework principal de automação
+robotframework==7.0
+
+# Biblioteca para requisições HTTP (API)
+robotframework-requests==0.9.7
+
+# Biblioteca utilizada para gerar de massa de dados dinâmica e realista
+robotframework-faker==5.0.0
+
+# Dependências auxiliares (Python)
+requests==2.31.0
+faker==24.0.0
