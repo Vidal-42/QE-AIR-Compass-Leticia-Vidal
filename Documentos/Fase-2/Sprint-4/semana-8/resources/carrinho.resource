@@ -1,146 +1,58 @@
 *** Settings ***
-Documentation     Testes para o endpoint /carrinhos
-Resource          ../resources/base_api.resource
-Resource          ../resources/carrinho.resource
-Resource          ../resources/produtos.resource
-Resource          ../resources/usuarios.resource
-Suite Setup       Criar Sessao API
-Test Teardown     Limpar Carrinho
+Documentation     Keywords para o endpoint /carrinhos
+Resource          base_api.resource
 
-*** Test Cases ***
+*** Keywords ***
+Criar Body Carrinho
+    [Arguments]    ${id_produto}    ${quantidade}=1
+    ${item}=       Create Dictionary    idProduto=${id_produto}    quantidade=${quantidade}
+    ${lista}=      Create List          ${item}
+    ${body}=       Create Dictionary    produtos=${lista}
+    RETURN         ${body}
 
-# =========================
-# POSITIVOS
-# =========================
+Criar Body Carrinho Customizado
+    [Arguments]    ${lista_produtos}
+    ${body}=       Create Dictionary    produtos=${lista_produtos}
+    RETURN         ${body}
 
-Cenário 01: Criar carrinho com sucesso
-    [Tags]    positivo    contrato
-    ${produto}=    Gerar Dados de Produto Realista
-    ${resp_prod}=  Criar Produto    ${produto}
-    ${produto_id}=    ${resp_prod.json()['_id']}
+Criar Carrinho
+    [Arguments]    ${body}    ${headers}=${EMPTY}
+    IF    '${headers}' == '${EMPTY}'
+        ${headers}=    Criar Header Autorizado
+    END
+    ${response}=    POST Endpoint    /carrinhos    ${body}    ${headers}
+    RETURN    ${response}
 
-    ${body}=    Criar Body Carrinho    ${produto_id}
-    Criar Carrinho E Validar Sucesso    ${body}
+Limpar Carrinho
+    ${headers}=     Criar Header Autorizado
+    # A API ServeRest limpa o carrinho ao concluir ou cancelar a compra
+    ${response}=    DELETE Endpoint    /carrinhos/concluir-compra    ${headers}
+    RETURN    ${response}
 
-
-Cenário 02: Criar carrinho com múltiplos produtos
-    [Tags]    positivo    regra_negocio
-    ${p1}=    Gerar Dados de Produto Realista
-    ${p2}=    Gerar Dados de Produto Realista
-
-    ${r1}=    Criar Produto    ${p1}
-    ${r2}=    Criar Produto    ${p2}
-
-    ${id1}=    ${r1.json()['_id']}
-    ${id2}=    ${r2.json()['_id']}
-
-    ${item1}=    Create Dictionary    idProduto=${id1}    quantidade=1
-    ${item2}=    Create Dictionary    idProduto=${id2}    quantidade=2
-
-    ${lista}=    Create List    ${item1}    ${item2}
-    ${body}=     Criar Body Carrinho Customizado    ${lista}
-
-    Criar Carrinho E Validar Sucesso    ${body}
-
-
-# =========================
-# NEGATIVOS (SEGURANÇA)
-# =========================
-
-Cenário 03: Não permitir criar carrinho sem autenticação
-    [Tags]    negativo    seguranca
-    ${body}=    Criar Body Carrinho    id_fake
-    Criar Carrinho Sem Auth E Validar 401    ${body}
-
-
-Cenário 04: Não permitir criar carrinho com token inválido
-    [Tags]    negativo    seguranca
-    ${body}=    Criar Body Carrinho    id_fake
-    Criar Carrinho Com Token Custom    ${body}    token_fake_123
-    # validação manual porque keyword retorna response
-    # (mantido assim para mostrar domínio técnico)
-    # alternativa: criar keyword específica
-
-
-# =========================
-# NEGATIVOS (VALIDAÇÃO)
-# =========================
-
-Cenário 05: Não permitir produto inexistente
-    [Tags]    negativo    regra_negocio
-    ${body}=    Criar Body Carrinho    id_inexistente
-    Criar Carrinho E Validar Erro 400    ${body}
-
-
-Cenário 06: Não permitir quantidade zero
-    [Tags]    negativo    boundary
-    ${produto}=    Gerar Dados de Produto Realista
-    ${resp}=       Criar Produto    ${produto}
-    ${id}=         ${resp.json()['_id']}
-
-    ${body}=    Criar Body Carrinho    ${id}    0
-    Criar Carrinho E Validar Erro 400    ${body}
-
-
-Cenário 07: Não permitir quantidade negativa
-    [Tags]    negativo    boundary
-    ${produto}=    Gerar Dados de Produto Realista
-    ${resp}=       Criar Produto    ${produto}
-    ${id}=         ${resp.json()['_id']}
-
-    ${body}=    Criar Body Carrinho    ${id}    -1
-    Criar Carrinho E Validar Erro 400    ${body}
-
-
-Cenário 08: Não permitir body vazio
-    [Tags]    negativo    contrato
-    ${response}=    POST Endpoint    /carrinhos    ${{{}}}
-    Validar Resposta 400 Carrinho    ${response}
-
-
-Cenário 09: Não permitir lista de produtos vazia
-    [Tags]    negativo    contrato
-    ${body}=    Create Dictionary    produtos=${EMPTY}
+Criar Carrinho E Validar Sucesso
+    [Arguments]    ${body}
     ${response}=    Criar Carrinho    ${body}
-    Validar Resposta 400 Carrinho    ${response}
+    Should Be Equal As Integers    ${response.status_code}    201
+    RETURN    ${response}
 
+Criar Carrinho E Validar Erro 400
+    [Arguments]    ${body}
+    ${response}=    Criar Carrinho    ${body}
+    Should Be Equal As Integers    ${response.status_code}    400
+    RETURN    ${response}
 
-Cenário 10: Não permitir produto sem quantidade
-    [Tags]    negativo    contrato
-    ${produto}=    Gerar Dados de Produto Realista
-    ${resp}=       Criar Produto    ${produto}
-    ${id}=         ${resp.json()['_id']}
+Criar Carrinho Sem Auth E Validar 401
+    [Arguments]    ${body}
+    ${headers}=     Create Dictionary    Authorization=None
+    ${response}=    POST Endpoint    /carrinhos    ${body}    ${headers}
+    Should Be Equal As Integers    ${response.status_code}    401
 
-    ${item}=    Create Dictionary    idProduto=${id}
-    ${lista}=   Create List    ${item}
-    ${body}=    Criar Body Carrinho Customizado    ${lista}
+Criar Carrinho Com Token Custom
+    [Arguments]    ${body}    ${token}
+    ${headers}=     Create Dictionary    Authorization=${token}
+    ${response}=    POST Endpoint    /carrinhos    ${body}    ${headers}
+    Should Be Equal As Integers    ${response.status_code}    401
 
-    Criar Carrinho E Validar Erro 400    ${body}
-
-
-# =========================
-# REGRA DE NEGÓCIO
-# =========================
-
-Cenário 11: Não permitir carrinho duplicado para mesmo usuário
-    [Tags]    negativo    regra_negocio
-    ${produto}=    Gerar Dados de Produto Realista
-    ${resp}=       Criar Produto    ${produto}
-    ${id}=         ${resp.json()['_id']}
-
-    ${body}=    Criar Body Carrinho    ${id}
-
-    Criar Carrinho E Validar Sucesso    ${body}
-    Criar Carrinho E Validar Erro 400    ${body}
-
-
-Cenário 12: Não permitir quantidade maior que estoque
-    [Tags]    negativo    integridade
-    ${produto}=    Gerar Dados de Produto Realista
-    Set To Dictionary    ${produto}    quantidade=1
-
-    ${resp}=    Criar Produto    ${produto}
-    ${id}=      ${resp.json()['_id']}
-
-    ${body}=    Criar Body Carrinho    ${id}    5
-    Criar Carrinho E Validar Erro 400    ${body}
+Validar Resposta 400 Carrinho
+    [Arguments]    ${response}
+    Should Be Equal As Integers    ${response.status_code}    400
