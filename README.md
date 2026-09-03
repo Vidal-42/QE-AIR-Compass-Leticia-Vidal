@@ -1,7 +1,7 @@
 # Quality Engineering & AI — CompassUOL | Fase 1 e Fase 2
 
-![Quality Engineering](https://img.shields.io/badge/Quality%20Engineering-CompassUOL-purple)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Quality Engineering](https://img.shields.io/badge/Quality%20Engineering-CompassUOL-orange)
+![Status](https://img.shields.io/badge/status-em%20concluído-green)
 
 ---
 
