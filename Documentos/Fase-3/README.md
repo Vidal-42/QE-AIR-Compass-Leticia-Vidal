@@ -9,7 +9,7 @@
 ## Estrutura do projeto
 
 ```
-API_Test_Automation/
+api_test_automation_challenge/
 ├── tests/
 │   ├── conftest.py        # fixtures: sessão HTTP, usuários/produto/carrinho de apoio, tokens
 │   ├── test_login.py
